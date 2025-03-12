@@ -23,11 +23,11 @@ a {
   position: relative;
   background-image: url("../imgs/landing-page-1.jpg");
   background-size: cover;
-  transition: 1s;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -ms-transition: 1s;
-  -o-transition: 1s;
+  transition: 0.6s;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  -o-transition: 0.6s;
 }
 .landing-page .overlay {
   position: absolute;
@@ -54,7 +54,7 @@ a {
   display: flex;
 }
 .landing-page header .links li:not(:last-child) {
-  padding-right: 15px;
+  padding-right: 25px;
 }
 .landing-page header .links a {
   display: inline-block;
@@ -88,11 +88,15 @@ a {
   -ms-transition: var(--main-transition);
   -o-transition: var(--main-transition);
 }
-.landing-page header .links a:hover::before {
+.landing-page header .links a:hover::before,
+.landing-page header .links a.active::before {
   left: 0;
 }
 .landing-page header .header-icons a {
   color: var(--main-color-2);
+}
+.landing-page header .header-icons a:hover {
+  color: var(--main-color-1);
 }
 .landing-page header .header-icons a:not(:last-child) {
   padding-right: 15px;
