@@ -1,6 +1,6 @@
 :root {
-  --main-color-1: #70908b;
-  --main-color-2: #07484a;
+  --main-color-1: #07484a;
+  --main-color-2: #70908b;
   --secondary-color-1: #caf3e5;
   --secondary-color-2: #e0eff6;
   --secondary-color-3: #eeebff;
@@ -8,15 +8,97 @@
   --secondary-color-5: #fdfbf8;
   --main-transition: 0.3s;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "Open Sans", sans-serif;
 }
 ul {
   margin: 0;
+  list-style: none;
 }
 a {
   text-decoration: none;
 }
+/* Start Settings Box */
+.settings {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  z-index: 1000;
+  background-color: var(--main-color-1);
+  min-width: 200px;
+  min-height: 100vh;
+  transition: var(--main-transition);
+}
+.settings.open {
+  left: 0;
+}
+.settings .setting-icon {
+  position: absolute;
+  right: -35px;
+  top: 100px;
+  text-align: center;
+  background: var(--main-color-1);
+  color: white;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.settings .gear {
+  width: 35px;
+  padding: 13px 0;
+}
+.settings .settings-container {
+  padding: 10px;
+}
+.settings .settings-container .option-box {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--main-color-2);
+}
+.settings .settings-container .option-box h4 {
+  font-size: 22px;
+  margin: 0 0 10px;
+  color: white;
+}
+.settings .settings-container .option-box .color-list {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.settings .settings-container .option-box .color-list li {
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.settings .settings-container .option-box .color-list li.active,
+.settings .settings-container .option-box .color-list li:hover {
+  border: 2px solid white;
+}
+.settings .settings-container .option-box .color-list li:first-child {
+  background-color: #07484a;
+}
+.settings .settings-container .option-box .color-list li:nth-child(2) {
+  background-color: #48074a;
+}
+.settings .settings-container .option-box .color-list li:nth-child(3) {
+  background-color: #793804;
+}
+.settings .settings-container .option-box .color-list li:nth-child(4) {
+  background-color: #060f8a;
+}
+.settings .settings-container .option-box .color-list li:nth-child(5) {
+  background-color: #630000;
+}
+/* End Settings Box */
 /* Start Landing Page */
 .landing-page {
   min-height: 100vh;
@@ -47,10 +129,9 @@ a {
 .landing-page header .logo {
   font-size: 24px;
   font-weight: 700;
-  color: var(--main-color-2);
+  color: var(--main-color-1);
 }
 .landing-page header .links {
-  list-style: none;
   display: flex;
 }
 .landing-page header .links li:not(:last-child) {
@@ -59,7 +140,7 @@ a {
 .landing-page header .links a {
   display: inline-block;
   padding-bottom: 5px;
-  color: var(--main-color-1);
+  color: var(--main-color-2);
   font-size: 15px;
   font-weight: 600;
   position: relative;
@@ -72,14 +153,14 @@ a {
 }
 .landing-page header .links a:hover,
 .landing-page header .links a.active {
-  color: var(--main-color-2);
+  color: var(--main-color-1);
 }
 .landing-page header .links a::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: var(--main-color-2);
+  background-color: var(--main-color-1);
   left: -100%;
   bottom: 0;
   transition: var(--main-transition);
@@ -93,10 +174,10 @@ a {
   left: 0;
 }
 .landing-page header .header-icons a {
-  color: var(--main-color-2);
+  color: var(--main-color-1);
 }
 .landing-page header .header-icons a:hover {
-  color: var(--main-color-1);
+  color: var(--main-color-2);
 }
 .landing-page header .header-icons a:not(:last-child) {
   padding-right: 15px;

@@ -1,3 +1,43 @@
+// For add&remove spin on gear and open in settings
+document.querySelector(".setting-icon .gear").onclick = function () {
+  this.classList.toggle("fa-spin");
+  document.querySelector(".settings").classList.toggle("open");
+};
+
+let colorOptionLi = document.querySelectorAll(".settings .color-list li");
+
+let mainColor = localStorage.getItem("color_option_1");
+
+//Check the localStorge if has a color_option_1 or not
+if (mainColor) {
+  document.documentElement.style.setProperty("--main-color-1", mainColor);
+  document.documentElement.style.setProperty(
+    "--main-color-2",
+    localStorage.getItem("color_option_2")
+  );
+  colorOptionLi.forEach((li) => li.classList.remove("active"));
+  document
+    .querySelector(`[data-color1="${mainColor}"]`)
+    .classList.add("active");
+}
+// when you click on color option make this change
+colorOptionLi.forEach((color) => {
+  color.addEventListener("click", (e) => {
+    document.documentElement.style.setProperty(
+      "--main-color-1",
+      e.target.dataset.color1
+    );
+    document.documentElement.style.setProperty(
+      "--main-color-2",
+      e.target.dataset.color2
+    );
+    localStorage.setItem("color_option_1", e.target.dataset.color1);
+    localStorage.setItem("color_option_2", e.target.dataset.color2);
+    colorOptionLi.forEach((li) => li.classList.remove("active"));
+    e.target.classList.add("active");
+  });
+});
+
 // needed for way 1
 // // Select Landing page
 // let landingPage = document.querySelector(".landing-page");
