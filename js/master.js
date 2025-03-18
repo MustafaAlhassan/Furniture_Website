@@ -38,26 +38,6 @@ colorOptionLi.forEach((color) => {
   });
 });
 
-// needed for way 1
-// // Select Landing page
-// let landingPage = document.querySelector(".landing-page");
-
-// Get Array Of Images
-let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
-
-setInterval(() => {
-  // way 1
-  // let randomNum = Math.floor(Math.random() * imgsArray.length)
-  // // Change background Image Url
-  // landingPage.style.backgroundImage = `url(imgs/landing-page-${imgsArray[randomNum]})`
-
-  // way 2
-  let randomNum = Math.floor(Math.random() * imgsArray.length) + 1;
-  document.querySelector(
-    ".landing-page"
-  ).style.backgroundImage = `url(imgs/landing-page-${randomNum}.jpg)`;
-}, 5000);
-
 // change the active class when we click on the header;s link
 let links = document.querySelectorAll(".links li a");
 
@@ -70,3 +50,55 @@ links.forEach((link) => {
     this.classList.add("active");
   });
 });
+
+let backgroundOption = true;
+let backgroundInterval;
+let randomBackEl = document.querySelectorAll(".settings .random-option span");
+let backgroundLocalOption = localStorage.getItem("background_option");
+
+if (backgroundLocalOption) {
+  randomBackEl.forEach((element) => {
+    element.classList.remove("active");
+  });
+  if (backgroundLocalOption === "true") {
+    backgroundOption = true;
+    document.querySelector(".settings .random-option .yes").classList.add("active");
+  } else {
+    backgroundOption = false;
+    document.querySelector(".settings .random-option .no").classList.add("active");
+  }
+}
+
+// when you click on Random Background option make this change
+randomBackEl.forEach((span) => {
+  span.addEventListener("click", (e) => {
+    randomBackEl.forEach((li) => li.classList.remove("active"));
+    e.target.classList.add("active");
+    //this to make background change or unchange
+    let backOption = e.target.dataset.background;
+    if (backOption === "yes") {
+      backgroundOption = true;
+      randomizeImgs();
+      localStorage.setItem("background_option", true);
+    } else {
+      backgroundOption = false;
+      clearInterval(backgroundInterval);
+      localStorage.setItem("background_option", false);
+    }
+  });
+});
+
+// Get Array Of Images
+let imgsArray = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+
+function randomizeImgs() {
+  if (backgroundOption) {
+    backgroundInterval = setInterval(() => {
+      let randomNum = Math.floor(Math.random() * imgsArray.length);
+      document.querySelector(
+        ".landing-page"
+      ).style.backgroundImage = `url(imgs/landing-page-${imgsArray[randomNum]})`;
+    }, 5000);
+  }
+}
+randomizeImgs();

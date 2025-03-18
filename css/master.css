@@ -25,12 +25,16 @@ a {
 .settings {
   position: absolute;
   top: 0;
-  left: -200px;
+  left: -250px;
   z-index: 1000;
   background-color: var(--main-color-1);
-  min-width: 200px;
+  width: 250px;
   min-height: 100vh;
   transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
 }
 .settings.open {
   left: 0;
@@ -51,15 +55,18 @@ a {
   padding: 13px 0;
 }
 .settings .settings-container {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
 }
 .settings .settings-container .option-box {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   background-color: var(--main-color-2);
 }
 .settings .settings-container .option-box h4 {
-  font-size: 22px;
+  font-size: 16px;
   margin: 0 0 10px;
   color: white;
 }
@@ -69,8 +76,8 @@ a {
   justify-content: center;
 }
 .settings .settings-container .option-box .color-list li {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   margin: 2px;
   cursor: pointer;
   border-radius: 50%;
@@ -97,6 +104,25 @@ a {
 }
 .settings .settings-container .option-box .color-list li:nth-child(5) {
   background-color: #630000;
+}
+.settings .settings-container .random-option .yes,
+.settings .settings-container .random-option .no {
+  display: inline-block;
+  background-color: var(--main-color-1);
+  color: white;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.6;
+  cursor: pointer;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.settings .settings-container .random-option .active {
+  opacity: 1;
 }
 /* End Settings Box */
 /* Start Landing Page */
