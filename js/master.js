@@ -62,10 +62,14 @@ if (backgroundLocalOption) {
   });
   if (backgroundLocalOption === "true") {
     backgroundOption = true;
-    document.querySelector(".settings .random-option .yes").classList.add("active");
+    document
+      .querySelector(".settings .random-option .yes")
+      .classList.add("active");
   } else {
     backgroundOption = false;
-    document.querySelector(".settings .random-option .no").classList.add("active");
+    document
+      .querySelector(".settings .random-option .no")
+      .classList.add("active");
   }
 }
 
@@ -89,7 +93,7 @@ randomBackEl.forEach((span) => {
 });
 
 // Get Array Of Images
-let imgsArray = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+let imgsArray = ["1.jpg", "11.jpg", "12.jpg", "9.jpg", "13.jpg"];
 
 function randomizeImgs() {
   if (backgroundOption) {
@@ -97,8 +101,67 @@ function randomizeImgs() {
       let randomNum = Math.floor(Math.random() * imgsArray.length);
       document.querySelector(
         ".landing-page"
-      ).style.backgroundImage = `url(imgs/landing-page-${imgsArray[randomNum]})`;
+      ).style.backgroundImage = `url(imgs/img-${imgsArray[randomNum]})`;
     }, 5000);
   }
 }
 randomizeImgs();
+
+let ourQuality = document.querySelector(".our-quality");
+
+window.onscroll = function () {
+  let qualityOffsetTop = ourQuality.offsetTop;
+  let qualityOuterHeight = ourQuality.offsetHeight;
+  let windowHeight = this.innerHeight;
+  let windowScrollTop = this.pageYOffset;
+
+  if (windowScrollTop >= qualityOffsetTop + qualityOuterHeight - windowHeight) {
+    let allQualityBar = document.querySelectorAll(
+      ".quality-box .progress span"
+    );
+    let allQualityPercent = document.querySelectorAll(".quality-box .percent");
+    let count = 0;
+    allQualityBar.forEach((quality) => {
+      quality.style.width = quality.dataset.progress;
+      allQualityPercent[count].innerHTML = quality.dataset.progress;
+      count++;
+    });
+  }
+};
+
+let allImgs = document.querySelectorAll(".gallery .img-box img");
+
+allImgs.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    let popupOverlay = document.createElement("div");
+    popupOverlay.className = "popup-overlay";
+    document.body.appendChild(popupOverlay);
+
+    let popupBox = document.createElement("div");
+    popupBox.className = "popup-box";
+
+    let popupImage = document.createElement("img");
+    popupImage.src = img.src;
+
+    popupBox.appendChild(popupImage);
+    document.body.appendChild(popupBox);
+
+    if (img.alt != null) {
+      let imgHeading = document.createElement("h3");
+      imgHeading.textContent = img.alt;
+      popupBox.prepend(imgHeading);
+    }
+
+    let closeBtn = document.createElement("span");
+    closeBtn.textContent = "X";
+    closeBtn.className = "close-btn";
+    popupBox.appendChild(closeBtn);
+  });
+});
+
+document.addEventListener("click", function (e) {
+  if (e.target.className == "close-btn") {
+    e.target.parentNode.remove();
+    document.querySelector(".popup-overlay").remove();
+  }
+});
