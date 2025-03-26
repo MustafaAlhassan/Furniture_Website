@@ -3,7 +3,7 @@
   --main-color-2: #70908b;
   --secondary-color-1: #caf3e5;
   --secondary-color-2: #e0eff6;
-  --secondary-color-3: #eeebff;
+  --secondary-color-3: #e2e2e2;
   --secondary-color-4: #fff4e7;
   --secondary-color-5: #eee;
   --main-transition: 0.3s;
@@ -28,9 +28,10 @@ a {
 }
 /* Start Component */
 .section-head {
-  font-size: 30px;
+  font-size: 26px;
   color: var(--main-color-1);
   margin-bottom: 40px;
+  margin-top: 0;
 }
 /* End Component */
 /* Start Settings Box */
@@ -53,7 +54,7 @@ a {
 }
 .settings .setting-icon {
   position: absolute;
-  right: -35px;
+  right: -40px;
   top: 100px;
   text-align: center;
   background: var(--main-color-1);
@@ -63,7 +64,7 @@ a {
   border-bottom-right-radius: 5px;
 }
 .settings .gear {
-  width: 35px;
+  width: 40px;
   padding: 13px 0;
 }
 .settings .settings-container {
@@ -381,11 +382,11 @@ a {
 .popup-box {
   position: fixed;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   border: 5px solid var(--main-color-1);
   background-color: var(--secondary-color-5);
   z-index: 1001;
-  width: 80%;
+  width: 70%;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -408,16 +409,16 @@ a {
   -o-border-radius: 15px;
 }
 .popup-box h3 {
-  margin: 0 0 20px;
-  font-size: 30px;
+  margin: 0 0 10px;
+  font-size: 24px;
   color: var(--main-color-1);
 }
 .popup-box .close-btn {
   position: absolute;
   top: -20px;
   right: -20px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: var(--main-color-1);
   color: white;
   display: flex;
@@ -433,3 +434,183 @@ a {
   cursor: pointer;
 }
 /* End Our Gallery */
+/* Start Timeline */
+.timeline {
+  padding: 50px 0;
+  background-color: var(--secondary-color-5);
+}
+.timeline .timeline-content {
+  position: relative;
+  overflow: hidden;
+}
+.timeline .container h2.section-head {
+  text-align: center;
+}
+.timeline .timeline-content::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  margin-right: -1px;
+  background-color: var(--main-color-1);
+}
+.timeline .timeline-content .year {
+  position: relative;
+  width: 50px;
+  margin: 10px auto;
+  background-color: var(--main-color-1);
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.timeline .timeline-content .left,
+.timeline .timeline-content .right {
+  width: calc(50% - 40px);
+  margin-bottom: 20px;
+  position: relative;
+}
+.timeline .timeline-content .left {
+  float: left;
+  margin-left: 10px;
+}
+.timeline .timeline-content .right {
+  float: right;
+  margin-right: 10px;
+}
+.timeline .timeline-content .left::before,
+.timeline .timeline-content .right::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  border: 5px solid var(--main-color-1);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: white;
+  top: 23px;
+}
+.timeline .timeline-content .left::before {
+  right: -44px;
+}
+.timeline .timeline-content .right::before {
+  left: -42px;
+}
+.timeline .timeline-content .content {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 2px 10px 0px var(--main-color-2);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.timeline .timeline-content .left .content::before,
+.timeline .timeline-content .right .content::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 16px;
+}
+.timeline .timeline-content .left .content::before {
+  border-color: transparent transparent transparent var(--main-color-2);
+  right: -32px;
+}
+.timeline .timeline-content .right .content::before {
+  border-color: transparent var(--main-color-2) transparent transparent;
+  left: -32px;
+}
+.timeline .timeline-content .content h3 {
+  margin: 0 0 10px;
+  color: var(--main-color-1);
+}
+.timeline .timeline-content .content p {
+  margin: 0;
+  line-height: 1.6;
+}
+.timeline .timeline-content .clearfix {
+  clear: both;
+}
+/* End Timeline */
+/* Start feature */
+.feature {
+  padding: 50px 0;
+}
+.feature h2.section-head {
+  text-align: center;
+}
+.feature .features-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.feature .feat-box {
+  text-align: center;
+}
+.feature .feat-box .feat-img {
+  background-color: var(--secondary-color-3);
+  margin: 10px auto 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.feature .feat-box .feat-img::before {
+  content: "";
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  border: 4px solid white;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.feature .feat-box .feat-img img {
+  width: 50px;
+  height: 50px;
+}
+.feature .feat-box h3 {
+  margin: 10px 0 26px;
+  position: relative;
+}
+.feature .feat-box h3::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  left: 50%;
+  bottom: -15px;
+  background-color: var(--main-color-1);
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.feature .feat-box p {
+  margin: 0;
+  line-height: 1.5;
+}
+/* End feature */
