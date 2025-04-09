@@ -614,3 +614,63 @@ a {
   line-height: 1.5;
 }
 /* End feature */
+/* Start Testimonials */
+.testimonials {
+  padding: 50px 0;
+  position: relative;
+}
+.testimonials h2 {
+  color: white;
+}
+.testimonials::before,
+.testimonials::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+}
+.testimonials::before {
+  left: 0;
+  background-color: var(--main-color-1);
+}
+.testimonials::after {
+  right: 0;
+  background-color: #111;
+}
+.testimonials .boxes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.testimonials .boxes .box {
+  background-color: #eee;
+  padding: 15px;
+  flex: 1;
+}
+.testimonials .boxes .box img {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.testimonials .boxes .box > p {
+  margin: 0 0 15px;
+  line-height: 1.5;
+  font-style: italic;
+}
+.testimonials .boxes .box .person-info {
+  display: flex;
+  gap: 10px;
+}
+.testimonials .boxes .box .person-info .info h4 {
+  margin: 15px 0 5px 0;
+  color: var(--main-color-1);
+}
+.testimonials .boxes .box .person-info .info p {
+  margin: 0;
+}
+/* End Testimonials */
