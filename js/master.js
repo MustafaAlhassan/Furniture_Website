@@ -33,8 +33,7 @@ colorOptionLi.forEach((color) => {
     );
     localStorage.setItem("color_option_1", e.target.dataset.color1);
     localStorage.setItem("color_option_2", e.target.dataset.color2);
-    colorOptionLi.forEach((li) => li.classList.remove("active"));
-    e.target.classList.add("active");
+    handleActive(e);
   });
 });
 
@@ -43,10 +42,7 @@ let links = document.querySelectorAll(".links li a");
 
 links.forEach((link) => {
   link.addEventListener("click", function () {
-    // Remove 'active' class from all links
     links.forEach((lin) => lin.classList.remove("active"));
-
-    // Add 'active' class to the clicked link
     this.classList.add("active");
   });
 });
@@ -76,8 +72,7 @@ if (backgroundLocalOption) {
 // when you click on Random Background option make this change
 randomBackEl.forEach((span) => {
   span.addEventListener("click", (e) => {
-    randomBackEl.forEach((li) => li.classList.remove("active"));
-    e.target.classList.add("active");
+    handleActive(e);
     //this to make background change or unchange
     let backOption = e.target.dataset.background;
     if (backOption === "yes") {
@@ -166,15 +161,26 @@ document.addEventListener("click", function (e) {
   }
 });
 
-let allBullets = document.querySelectorAll(".nav-bullets .bullet")
+function scrollToSection(elements) {
+  elements.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      console.log(e.target.dataset.section);
+      document.querySelector(e.target.dataset.section).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+}
 
-allBullets.forEach(bullet => {
+let allBullets = document.querySelectorAll(".nav-bullets .bullet");
+let allLinks = document.querySelectorAll(".links a");
 
-  bullet.addEventListener("click", e => {
-    console.log(e.target.dataset.section)
-    document.querySelector(e.target.dataset.section).scrollIntoView({
-      behavior: 'smooth'
-    })
+scrollToSection(allBullets);
+scrollToSection(allLinks);
 
+function handleActive(ev) {
+  ev.target.parentElement.querySelectorAll(".active").forEach(element => {
+    element.classList.remove("active");
   })
-})
+  ev.target.classList.add("active");
+}

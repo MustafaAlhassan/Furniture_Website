@@ -118,8 +118,8 @@ a {
 .settings .settings-container .option-box .color-list li:nth-child(5) {
   background-color: #630000;
 }
-.settings .settings-container .random-option .yes,
-.settings .settings-container .random-option .no {
+.settings .option-box .yes,
+.settings .option-box .no {
   display: inline-block;
   background-color: var(--main-color-1);
   color: white;
