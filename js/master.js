@@ -179,8 +179,39 @@ scrollToSection(allBullets);
 scrollToSection(allLinks);
 
 function handleActive(ev) {
-  ev.target.parentElement.querySelectorAll(".active").forEach(element => {
+  ev.target.parentElement.querySelectorAll(".active").forEach((element) => {
     element.classList.remove("active");
-  })
+  });
   ev.target.classList.add("active");
 }
+
+let bulletsOption = document.querySelectorAll(".bullets-option span");
+let bulletsContainer = document.querySelector(".nav-bullets");
+let bulletsLocalItem = localStorage.getItem("bullets-option");
+
+if(bulletsLocalItem) {
+  bulletsOption.forEach(span => {
+    span.classList.remove("active");
+  });
+  if(bulletsLocalItem === "block") {
+    bulletsContainer.style.display = "block";
+    document.querySelector(".bullets-option span.yes").classList.add("active");
+  } else {
+    bulletsContainer.style.display = "none";
+    document.querySelector(".bullets-option span.no").classList.add("active");
+
+  }
+}
+
+bulletsOption.forEach((span) => {
+  span.addEventListener("click", (e) => {
+    if (span.dataset.display == "show") {
+      bulletsContainer.style.display = "block";
+      localStorage.setItem("bullets-option", "block");
+    } else {
+      bulletsContainer.style.display = "none";
+      localStorage.setItem("bullets-option", "none");
+    }
+    handleActive(e);
+  });
+});
