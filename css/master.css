@@ -137,6 +137,15 @@ a {
 .settings .settings-container .active {
   opacity: 1;
 }
+.settings .reset-option {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 5px;
+}
 /* End Settings Box */
 /* Start Nav Bullets */
 .nav-bullets {
@@ -337,7 +346,7 @@ a {
   flex: 1;
 }
 .about-us .info-box h2 {
-  margin: 0 0 20px;  
+  margin: 0 0 20px;
 }
 .about-us .info-box p {
   color: var(--main-color-2);
@@ -440,7 +449,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0,0.75);
+  background-color: rgb(0, 0, 0, 0.75);
   z-index: 1000;
 }
 .popup-box {
@@ -453,11 +462,11 @@ a {
   width: 70%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -688,7 +697,7 @@ a {
 }
 .testimonials::before,
 .testimonials::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 50%;
   height: 100%;
@@ -738,3 +747,86 @@ a {
   margin: 0;
 }
 /* End Testimonials */
+/* Start Contact Us */
+.contact-us h2.section-head {
+  padding: 50px 0;
+  position: relative;
+  text-align: center;
+  margin: 0;
+}
+.contact-us form {
+  margin: auto;
+  max-width: 800px;
+}
+.contact-us form .left {
+  float: left;
+  width: 49%;
+}
+.contact-us form .right {
+  float: right;
+  width: 49%;
+}
+.contact-us form input:not([type="submit"]),
+.contact-us form textarea {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background-color: rgb(218, 218, 218, 0.25);
+}
+.contact-us form input:not([type="submit"]):focus,
+.contact-us form textarea:focus {
+  outline: 1px solid var(--main-color-1);
+}
+.contact-us form input {
+  height: 40px;
+}
+.contact-us form textarea {
+  height: 150px;
+}
+.contact-us form input[type="submit"] {
+  padding: 10px;
+  width: 100%;
+  border-color: transparent;
+  background-color: var(--main-color-1);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.contact-us form input[type="submit"]:hover {
+  background-color: var(--main-color-2);
+}
+.contact-us form textarea:focus::-webkit-input-placeholder,
+.contact-us form input:not([type="submit"]):focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.contact-us form textarea:focus:-ms-input-placeholder,
+.contact-us form input:not([type="submit"]):focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.contact-us form textarea:focus::placeholder,
+.contact-us form input:not([type="submit"]):focus::placeholder {
+  opacity: 0;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+/* End Contact Us */

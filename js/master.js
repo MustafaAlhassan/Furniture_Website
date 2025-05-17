@@ -215,3 +215,12 @@ bulletsOption.forEach((span) => {
     handleActive(e);
   });
 });
+
+document.querySelector(".reset-option").onclick = function () {
+  // localStorage.clear(); this is to clear all local storage
+  localStorage.removeItem("color_option_1");
+  localStorage.removeItem("color_option_2");
+  localStorage.removeItem("background_option");
+  localStorage.removeItem("bullets-option");
+  window.location.reload();
+}
