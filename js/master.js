@@ -189,17 +189,16 @@ let bulletsOption = document.querySelectorAll(".bullets-option span");
 let bulletsContainer = document.querySelector(".nav-bullets");
 let bulletsLocalItem = localStorage.getItem("bullets-option");
 
-if(bulletsLocalItem) {
-  bulletsOption.forEach(span => {
+if (bulletsLocalItem) {
+  bulletsOption.forEach((span) => {
     span.classList.remove("active");
   });
-  if(bulletsLocalItem === "block") {
+  if (bulletsLocalItem === "block") {
     bulletsContainer.style.display = "block";
     document.querySelector(".bullets-option span.yes").classList.add("active");
   } else {
     bulletsContainer.style.display = "none";
     document.querySelector(".bullets-option span.no").classList.add("active");
-
   }
 }
 
@@ -223,4 +222,23 @@ document.querySelector(".reset-option").onclick = function () {
   localStorage.removeItem("background_option");
   localStorage.removeItem("bullets-option");
   window.location.reload();
-}
+};
+
+let toggleMenu = document.querySelector("header .toggle-menu");
+let linksContainer = document.querySelector("header .links-container");
+toggleMenu.onclick = function (e) {
+  e.stopPropagation();
+  toggleMenu.classList.toggle("menu-active");
+  linksContainer.classList.toggle("open");
+};
+linksContainer.onclick = function(e) {
+  e.stopPropagation();
+};
+window.addEventListener("click", function(e) {
+  if (toggleMenu.classList.contains("menu-active")) {
+    if (e.target !== toggleMenu && e.target !== linksContainer) {
+      toggleMenu.classList.remove("menu-active");
+      linksContainer.classList.remove("open");
+    }
+  }
+});
