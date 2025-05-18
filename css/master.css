@@ -703,10 +703,10 @@ a {
   top: 23px;
 }
 .timeline .timeline-content .left::before {
-  right: -44px;
+  right: -54px;
 }
 .timeline .timeline-content .right::before {
-  left: -42px;
+  left: -52px;
 }
 @media (max-width: 767px) {
   .timeline .timeline-content .left,
