@@ -238,7 +238,24 @@ a {
   align-items: center;
   padding: 15px;
   position: relative;
-  z-index: 2;
+}
+.landing-page header.headroom {
+  position: fixed;
+  z-index: 200;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+.headroom--pinned {
+  transform: translateY(0%); /* Show header */
+}
+.headroom--unpinned {
+  transform: translateY(-100%); /* Hide header */
 }
 .landing-page header .logo {
   font-size: 24px;
@@ -381,7 +398,6 @@ a {
   }
   .landing-page .toggle-menu {
     display: block;
-    margin-left: -20px;
   }
   .landing-page header .links-container.open {
     display: block;
@@ -389,7 +405,7 @@ a {
     padding: 10px;
     position: absolute;
     left: 50%;
-    top: 60px;
+    top: 50px;
     width: 180px;
     text-align: center;
     border-radius: 5px;
@@ -402,6 +418,7 @@ a {
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
+    margin: 10px;
   }
   .landing-page header .links-container.open .links {
     display: block;

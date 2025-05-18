@@ -215,12 +215,44 @@ bulletsOption.forEach((span) => {
   });
 });
 
+let headOption = document.querySelectorAll(".head-option span");
+let header = document.querySelector("header");
+let headLocalItem = localStorage.getItem("head-option");
+
+if (headLocalItem) {
+  headOption.forEach((span) => {
+    span.classList.remove("active");
+  });
+  if (headLocalItem === "show") {
+    header.classList.add("headroom");
+    document.querySelector(".head-option span.yes").classList.add("active");
+  } else {
+    header.classList.remove("headroom");
+    document.querySelector(".head-option span.no").classList.add("active");
+  }
+}
+
+headOption.forEach((span) => {
+  span.addEventListener("click", (e) => {
+    if (span.dataset.display == "show") {
+      header.classList.add("headroom");
+      localStorage.setItem("head-option", "show");
+    } else {
+      header.classList.remove("hide");
+      localStorage.setItem("head-option", "hide");
+    }
+    handleActive(e);
+    window.location.reload();
+  });
+});
+
 document.querySelector(".reset-option").onclick = function () {
   // localStorage.clear(); this is to clear all local storage
   localStorage.removeItem("color_option_1");
   localStorage.removeItem("color_option_2");
   localStorage.removeItem("background_option");
   localStorage.removeItem("bullets-option");
+  localStorage.removeItem("head-option");
   window.location.reload();
 };
 
@@ -231,14 +263,28 @@ toggleMenu.onclick = function (e) {
   toggleMenu.classList.toggle("menu-active");
   linksContainer.classList.toggle("open");
 };
-linksContainer.onclick = function(e) {
+linksContainer.onclick = function (e) {
   e.stopPropagation();
 };
-window.addEventListener("click", function(e) {
+window.addEventListener("click", function (e) {
   if (toggleMenu.classList.contains("menu-active")) {
     if (e.target !== toggleMenu && e.target !== linksContainer) {
       toggleMenu.classList.remove("menu-active");
       linksContainer.classList.remove("open");
     }
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector("header.headroom");
+  const headroom = new Headroom(header, {
+    offset: 100, // Hide after scrolling 100px down
+    tolerance: 5, // Delay before hiding
+    classes: {
+      pinned: "headroom--pinned",
+      unpinned: "headroom--unpinned",
+      initial: "headroom",
+    },
+  });
+  headroom.init();
 });
