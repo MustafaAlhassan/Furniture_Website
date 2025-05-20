@@ -25,6 +25,12 @@ a {
   padding: 0 15px;
   margin: auto;
 }
+@media (max-width: 575px) {
+  .container {
+    padding: 0 5px;
+    margin: auto;
+  }
+}
 /* Start Component */
 .section-head {
   font-size: 26px;
@@ -244,10 +250,10 @@ a {
   align-items: center;
   padding: 15px;
   position: relative;
+  z-index: 200;
 }
 .landing-page header.headroom {
   position: fixed;
-  z-index: 200;
   width: 1100px;
   top: 0;
   left: 50%;

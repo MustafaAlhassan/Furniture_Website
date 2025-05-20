@@ -164,7 +164,7 @@ document.addEventListener("click", function (e) {
 function scrollToSection(elements) {
   elements.forEach((element) => {
     element.addEventListener("click", (e) => {
-      console.log(e.target.dataset.section);
+      e.preventDefault();
       document.querySelector(e.target.dataset.section).scrollIntoView({
         behavior: "smooth",
       });
