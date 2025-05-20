@@ -288,3 +288,26 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   headroom.init();
 });
+
+// Nav Bullets with Dynamic Background on Section Scroll
+document.addEventListener("DOMContentLoaded", function () {
+  let sections = document.querySelectorAll("section");
+  function checkActiveSection() {
+    let currnetSection = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= sectionTop - sectionHeight / 3) {
+        currnetSection = "."+ section.getAttribute('id');
+      }
+    });
+    allBullets.forEach((bullet) => {
+      bullet.classList.remove("active");
+      if (bullet.getAttribute("data-section") === currnetSection) {
+        bullet.classList.add("active");
+      }
+    });
+  }
+  checkActiveSection();
+  window.addEventListener("scroll", checkActiveSection);
+});

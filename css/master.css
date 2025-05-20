@@ -174,6 +174,12 @@ a {
   -o-border-radius: 50%;
   cursor: pointer;
 }
+.nav-bullets .bullet:hover {
+  background-color: var(--main-color-2);
+}
+.nav-bullets .bullet.active {
+  background-color: var(--main-color-2);
+}
 .nav-bullets .bullet .tooltip {
   position: absolute;
   background-color: var(--main-color-1);
@@ -242,14 +248,40 @@ a {
 .landing-page header.headroom {
   position: fixed;
   z-index: 200;
-  width: 100%;
+  width: 1100px;
   top: 0;
-  left: 0;
+  left: 50%;
+  margin-left: -550px;
   transition: transform 0.3s ease;
   -webkit-transition: transform 0.3s ease;
   -moz-transition: transform 0.3s ease;
   -ms-transition: transform 0.3s ease;
   -o-transition: transform 0.3s ease;
+}
+@media (max-width: 1199px) {
+  .landing-page header.headroom {
+    width: 900px;
+    margin-left: -450px;
+  }
+}
+@media (max-width: 991px) {
+  .landing-page header.headroom {
+    width: 700px;
+    margin-left: -350px;
+  }
+}
+@media (max-width: 767px) {
+  .landing-page header.headroom {
+    width: 500px;
+    margin-left: -250px;
+  }
+}
+@media (max-width: 575px) {
+  .landing-page header.headroom {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+  }
 }
 .headroom--pinned {
   transform: translateY(0%); /* Show header */
@@ -972,7 +1004,7 @@ a {
   height: 40px;
 }
 .contact-us form textarea {
-  height: 150px;
+  height: 205px;
   resize: none;
 }
 .contact-us form input[type="submit"] {
@@ -1018,6 +1050,18 @@ a {
   -moz-transition: var(--main-transition);
   -ms-transition: var(--main-transition);
   -o-transition: var(--main-transition);
+}
+.contact-us .send-email {
+  text-align: center;
+}
+.contact-us .send-email p {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 40px 0 10px 0;
+}
+.contact-us .send-email span {
+  font-size: 18px;
+  font-weight: 500;
 }
 /* End Contact Us */
 /* Start Footer */
